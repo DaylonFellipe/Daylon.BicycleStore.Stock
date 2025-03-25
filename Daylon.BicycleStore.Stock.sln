@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{9BEC4FE9-8CC6-4545-A3ED-2FA27ED0463B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{73382B3C-32AB-46D3-AC1A-A8B1D5E58D06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{58C031EF-D178-4FF0-A16B-86CE5F83407F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.Api", "Source\Backend\Daylon.BicycleStore.Stock.Api\Daylon.BicycleStore.Stock.Api.csproj", "{63F1088D-907E-4A7F-BFF7-22F0614F9505}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.Application", "Source\Backend\Daylon.BicycleStore.Stock.Application\Daylon.BicycleStore.Stock.Application.csproj", "{CF32D4A7-CAF0-401F-9FF1-D031DC22E2AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.Domain", "Source\Backend\Daylon.BicycleStore.Stock.Domain\Daylon.BicycleStore.Stock.Domain.csproj", "{06BE526B-5324-480D-8201-5BC72DFCB289}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.Infrastructure", "Source\Backend\Daylon.BicycleStore.Stock.Infrastructure\Daylon.BicycleStore.Stock.Infrastructure.csproj", "{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63F1088D-907E-4A7F-BFF7-22F0614F9505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63F1088D-907E-4A7F-BFF7-22F0614F9505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63F1088D-907E-4A7F-BFF7-22F0614F9505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63F1088D-907E-4A7F-BFF7-22F0614F9505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF32D4A7-CAF0-401F-9FF1-D031DC22E2AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF32D4A7-CAF0-401F-9FF1-D031DC22E2AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF32D4A7-CAF0-401F-9FF1-D031DC22E2AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF32D4A7-CAF0-401F-9FF1-D031DC22E2AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06BE526B-5324-480D-8201-5BC72DFCB289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06BE526B-5324-480D-8201-5BC72DFCB289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06BE526B-5324-480D-8201-5BC72DFCB289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06BE526B-5324-480D-8201-5BC72DFCB289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{73382B3C-32AB-46D3-AC1A-A8B1D5E58D06} = {9BEC4FE9-8CC6-4545-A3ED-2FA27ED0463B}
+		{58C031EF-D178-4FF0-A16B-86CE5F83407F} = {9BEC4FE9-8CC6-4545-A3ED-2FA27ED0463B}
+		{63F1088D-907E-4A7F-BFF7-22F0614F9505} = {73382B3C-32AB-46D3-AC1A-A8B1D5E58D06}
+		{CF32D4A7-CAF0-401F-9FF1-D031DC22E2AE} = {73382B3C-32AB-46D3-AC1A-A8B1D5E58D06}
+		{06BE526B-5324-480D-8201-5BC72DFCB289} = {73382B3C-32AB-46D3-AC1A-A8B1D5E58D06}
+		{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA} = {73382B3C-32AB-46D3-AC1A-A8B1D5E58D06}
+	EndGlobalSection
+EndGlobal

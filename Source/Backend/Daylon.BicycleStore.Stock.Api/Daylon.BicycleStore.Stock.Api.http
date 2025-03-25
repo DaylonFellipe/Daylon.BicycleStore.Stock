@@ -1,0 +1,6 @@
+@Daylon.BicycleStore.Stock.Api_HostAddress = http://localhost:5182
+
+GET {{Daylon.BicycleStore.Stock.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
