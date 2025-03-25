@@ -1,4 +1,5 @@
 ﻿using Daylon.BicycleStore.Stock.Domain.Entity;
+using Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,14 +9,20 @@ namespace Daylon.BicycleStore.Stock.Api.Controllers
     [ApiController]
     public class BicycleController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult<List<Bicycle>> Get()
+        private readonly IBicycleRepository _bicycleRepository;
+
+        public BicycleController(IBicycleRepository bicycleRepository)
         {
-            var result = 
+            _bicycleRepository = bicycleRepository;
+        }
 
 
+        [HttpGet]
+        public async Task<List<Bicycle>> Get()
+        {
+            var result = await _bicycleRepository.GetBicyclesAsync();
 
-            return Ok();
+            return result;
         }
     }
 }

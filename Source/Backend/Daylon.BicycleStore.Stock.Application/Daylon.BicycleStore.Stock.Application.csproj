@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Daylon.BicycleStore.Stock.Domain\Daylon.BicycleStore.Stock.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interface\" />
+  </ItemGroup>
+
 </Project>
