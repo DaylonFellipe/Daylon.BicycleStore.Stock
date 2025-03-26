@@ -1,6 +1,4 @@
-﻿using Daylon.BicycleStore.Stock.Domain.Entity;
-using Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle;
-using Microsoft.AspNetCore.Http;
+﻿using Daylon.BicycleStore.Stock.Application.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Daylon.BicycleStore.Stock.Api.Controllers
@@ -9,20 +7,25 @@ namespace Daylon.BicycleStore.Stock.Api.Controllers
     [ApiController]
     public class BicycleController : ControllerBase
     {
-        private readonly IBicycleRepository _bicycleRepository;
+        private readonly IBicycleService _services;
 
-        public BicycleController(IBicycleRepository bicycleRepository)
+        public BicycleController(IBicycleService bicycleRepository)
         {
-            _bicycleRepository = bicycleRepository;
+            _services = bicycleRepository;
         }
 
+        // GET
 
         [HttpGet]
-        public async Task<List<Bicycle>> Get()
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAsync()
         {
-            var result = await _bicycleRepository.GetBicyclesAsync();
+            var bicycles = await _services.GetBicyclesAsync();
 
-            return result;
+            if (bicycles.Count == 0) return NotFound("No bicycles found");
+
+            return Ok(bicycles);
         }
     }
 }
+

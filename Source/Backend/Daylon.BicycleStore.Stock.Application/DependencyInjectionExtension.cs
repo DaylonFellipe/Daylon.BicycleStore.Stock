@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Daylon.BicycleStore.Stock.Application.Interface;
+using Daylon.BicycleStore.Stock.Application.Services.Bicycle;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Daylon.BicycleStore.Stock.Application
 {
@@ -6,12 +8,12 @@ namespace Daylon.BicycleStore.Stock.Application
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            
+            AddServices(services);
         }
 
-        //private static void AddServices(IServiceCollection services)
-        //{
-
-        //}
+        private static void AddServices(IServiceCollection services)
+        {
+            services.AddScoped<IBicycleService, BicycleService>();
+        }
     }
 }
