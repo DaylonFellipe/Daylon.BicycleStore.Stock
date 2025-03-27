@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Daylon.BicycleStore.Stock.Domain\Daylon.BicycleStore.Stock.Domain.csproj" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\" />
+    <ProjectReference Include="..\..\Shared\Daylon.BicycleStore.Communication\Daylon.BicycleStore.Communication.csproj" />
+    <ProjectReference Include="..\Daylon.BicycleStore.Stock.Domain\Daylon.BicycleStore.Stock.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -7,7 +7,7 @@ namespace Daylon.BicycleStore.Stock.Domain.Entity
         // Basic Properties
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; } = string.Empty;
 
         // Technical Properties
         public BrandEnum Brand { get; set; }

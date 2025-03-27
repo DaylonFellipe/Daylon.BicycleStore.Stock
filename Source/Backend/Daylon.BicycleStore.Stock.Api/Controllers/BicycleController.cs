@@ -1,4 +1,5 @@
-﻿using Daylon.BicycleStore.Stock.Application.Interface;
+﻿using Daylon.BicycleStore.Communication.Request;
+using Daylon.BicycleStore.Stock.Application.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Daylon.BicycleStore.Stock.Api.Controllers
@@ -25,6 +26,18 @@ namespace Daylon.BicycleStore.Stock.Api.Controllers
             if (bicycles.Count == 0) return NotFound("No bicycles found");
 
             return Ok(bicycles);
+        }
+
+        // POST
+
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public async Task<IActionResult> RegisterBicycle(
+            [FromBody] RequestRegisterBicycleJson request)
+        {
+            var bicycle = await _services.RegisterBicycleAsync(request);
+
+            return Created(string.Empty, bicycle);
         }
     }
 }
