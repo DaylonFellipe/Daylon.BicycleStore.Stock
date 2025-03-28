@@ -20,6 +20,6 @@ namespace Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle
 
         // DELETE
 
-        public Task DeleteBicycleByIdAsync(Guid id);
+        public Task DeleteBicycleAsync(Entity.Bicycle bicycle);
     }
 }

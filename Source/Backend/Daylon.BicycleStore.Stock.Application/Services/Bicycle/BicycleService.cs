@@ -20,12 +20,22 @@ namespace Daylon.BicycleStore.Stock.Application.Services.Bicycle
             _useCase = UseCase;
         }
 
+        // GET
         public async Task<List<Domain.Entity.Bicycle>> GetBicyclesAsync()
         {
             var bicycles = await _bicycleRepository.GetBicyclesAsync();
 
             return bicycles;
         }
+
+        public async Task<Domain.Entity.Bicycle> GetBicycleByIdAsync(Guid id)
+        {
+            var bicycle = await _bicycleRepository.GetBicycleByIdAsync(id);
+
+            return bicycle;
+        }
+
+        // POST
 
         public async Task<BicycleDTO> RegisterBicycleAsync(RequestRegisterBicycleJson request)
         {
@@ -42,6 +52,15 @@ namespace Daylon.BicycleStore.Stock.Application.Services.Bicycle
             };
 
             return result;
+        }
+
+        // DELETE
+
+        public async Task DeleteBicycleAsync(Guid id)
+        {
+            var bicycle = await _bicycleRepository.GetBicycleByIdAsync(id);
+
+            await _bicycleRepository.DeleteBicycleAsync(bicycle);
         }
     }
 }

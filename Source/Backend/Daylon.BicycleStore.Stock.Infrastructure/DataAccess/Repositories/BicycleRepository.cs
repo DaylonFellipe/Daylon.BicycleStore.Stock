@@ -23,21 +23,20 @@ namespace Daylon.BicycleStore.Stock.Infrastructure.DataAccess.Repositories
         }
 
         // GET
+
         public async Task<List<Bicycle>> GetBicyclesAsync() => await _dbContext.Bicycles.ToListAsync();
 
         public async Task<Bicycle> GetBicycleByIdAsync(Guid id)
         {
-            var bicyble = await _dbContext.Bicycles.FirstOrDefaultAsync(b => b.Id == id);
+            var bicycle = await _dbContext.Bicycles.FirstOrDefaultAsync(b => b.Id == id);
 
-            return bicyble ?? throw new Exception($"Bicycle with id {id} not found");
+            return bicycle ?? throw new Exception($"Bicycle with id {id} not found");
         }
 
         // DELETE
 
-        public async Task DeleteBicycleByIdAsync(Guid id)
+        public async Task DeleteBicycleAsync(Bicycle bicycle)
         {
-            var bicycle = await GetBicycleByIdAsync(id);
-
             _dbContext.Bicycles.Remove(bicycle);
 
             await SaveChangesAsync();

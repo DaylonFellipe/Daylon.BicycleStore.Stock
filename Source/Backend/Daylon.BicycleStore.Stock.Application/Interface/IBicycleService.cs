@@ -9,9 +9,14 @@ namespace Daylon.BicycleStore.Stock.Application.Interface
 
         public Task<List<Domain.Entity.Bicycle>> GetBicyclesAsync();
 
+        public Task<Domain.Entity.Bicycle> GetBicycleByIdAsync(Guid id);
+
         // POST
 
         public Task<BicycleDTO> RegisterBicycleAsync(RequestRegisterBicycleJson request);
 
+        // DELETE
+
+        public Task DeleteBicycleAsync(Guid id);
     }
 }
