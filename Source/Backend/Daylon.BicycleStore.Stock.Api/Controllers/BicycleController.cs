@@ -41,7 +41,7 @@ namespace Daylon.BicycleStore.Stock.Api.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<IActionResult> RegisterBicycle(
+        public async Task<IActionResult> RegisterBicycleAsync(
             [FromBody] RequestRegisterBicycleJson request)
         {
             var bicycle = await _services.RegisterBicycleAsync(request);
@@ -49,10 +49,22 @@ namespace Daylon.BicycleStore.Stock.Api.Controllers
             return Created(string.Empty, bicycle);
         }
 
+        // PUT
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> UpdateBicycleAsync(
+            [FromBody] RequestUpdateBicycleJson request)
+        {
+            var bicycle = await _services.UpdateBicycleAsync(request);
+
+            return Ok(bicycle);
+        }
+
         // DELETE
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> DeleteBicycle(Guid id)
+        public async Task<IActionResult> DeleteBicycleAsync(Guid id)
         {
             await _services.DeleteBicycleAsync(id);
 

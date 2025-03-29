@@ -1,4 +1,5 @@
 ﻿using Daylon.BicycleStore.Communication.Request;
+using Daylon.BicycleStore.Stock.Domain.Entity.Enum;
 using Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle;
 
 namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
@@ -17,8 +18,6 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
             // Validate
             Validate(request);
 
-
-
             // Map
             var bicycle = new Domain.Entity.Bicycle
             {
@@ -35,6 +34,24 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
 
             // Save
             await _bicycleRepository.AddAsync(bicycle);
+            await _bicycleRepository.SaveChangesAsync();
+
+            return bicycle;
+        }
+
+        public async Task<Domain.Entity.Bicycle> ExecuteUpdateBicycleAsync(RequestUpdateBicycleJson request)
+        {
+
+            var bicycle = await _bicycleRepository.GetBicycleByIdAsync(request.Id);
+
+            if (!string.IsNullOrEmpty(request.Name)) bicycle.Name = request.Name;
+            if (request.Description != null) bicycle.Description = request.Description;
+            if (Enum.IsDefined(typeof(BrandEnum), request.Brand)) bicycle.Brand = request.Brand;
+            if (Enum.IsDefined(typeof(ModelEnum), request.Model)) bicycle.Model = request.Model;
+            if (Enum.IsDefined(typeof(ColorEnum), request.Color)) bicycle.Color = request.Color;
+            if (request.Price != null) bicycle.Price = request.Price;
+
+            await _bicycleRepository.UpdateTaskAsync(bicycle);
             await _bicycleRepository.SaveChangesAsync();
 
             return bicycle;

@@ -2,6 +2,7 @@
 using Daylon.BicycleStore.Stock.Application.DTO.BicycleDTO;
 using Daylon.BicycleStore.Stock.Application.Interface;
 using Daylon.BicycleStore.Stock.Application.UseCases.Bicycle;
+using Daylon.BicycleStore.Stock.Domain.Entity.Enum;
 using Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle;
 
 namespace Daylon.BicycleStore.Stock.Application.Services.Bicycle
@@ -40,6 +41,25 @@ namespace Daylon.BicycleStore.Stock.Application.Services.Bicycle
         public async Task<BicycleDTO> RegisterBicycleAsync(RequestRegisterBicycleJson request)
         {
             var bicycle = await _useCase.ExecuteRegisterBicycleAsync(request);
+
+            var result = new BicycleDTO
+            {
+                Name = bicycle.Name,
+                Description = bicycle.Description,
+                Brand = bicycle.Brand,
+                Model = bicycle.Model,
+                Color = bicycle.Color,
+                Price = bicycle.Price
+            };
+
+            return result;
+        }
+
+        //PUT
+
+        public async Task<BicycleDTO> UpdateBicycleAsync(RequestUpdateBicycleJson request)
+        {
+           var bicycle = await _useCase.ExecuteUpdateBicycleAsync(request);
 
             var result = new BicycleDTO
             {
