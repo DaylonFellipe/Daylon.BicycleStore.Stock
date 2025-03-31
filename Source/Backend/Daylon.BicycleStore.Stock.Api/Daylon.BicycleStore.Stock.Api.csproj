@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\Daylon.BicycleStore.Communication\Daylon.BicycleStore.Communication.csproj" />
+    <ProjectReference Include="..\..\Shared\Daylon.BicycleStore.Stock.Exceptions\Daylon.BicycleStore.Stock.Exceptions.csproj" />
     <ProjectReference Include="..\Daylon.BicycleStore.Stock.Application\Daylon.BicycleStore.Stock.Application.csproj" />
     <ProjectReference Include="..\Daylon.BicycleStore.Stock.Infrastructure\Daylon.BicycleStore.Stock.Infrastructure.csproj" />
   </ItemGroup>

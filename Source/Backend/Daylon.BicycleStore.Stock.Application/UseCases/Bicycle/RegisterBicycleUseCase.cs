@@ -1,6 +1,7 @@
 ﻿using Daylon.BicycleStore.Communication.Request;
 using Daylon.BicycleStore.Stock.Domain.Entity.Enum;
 using Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle;
+using Daylon.BicycleStore.Stock.Exceptions;
 
 namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
 {
@@ -16,7 +17,7 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
         public async Task<Domain.Entity.Bicycle> ExecuteRegisterBicycleAsync(RequestRegisterBicycleJson request)
         {
             // Validate
-            Validate(request);
+            ValidateRegister(request);
 
             // Map
             var bicycle = new Domain.Entity.Bicycle
@@ -41,6 +42,8 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
 
         public async Task<Domain.Entity.Bicycle> ExecuteUpdateBicycleAsync(RequestUpdateBicycleJson request)
         {
+            ValidateUpdate(request);
+
 
             var bicycle = await _bicycleRepository.GetBicycleByIdAsync(request.Id);
 
@@ -57,7 +60,7 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
             return bicycle;
         }
 
-        private static void Validate(RequestRegisterBicycleJson request)
+        private static void ValidateRegister(RequestRegisterBicycleJson request)
         {
             var validator = new RegisterBicycleValidator();
             var result = validator.Validate(request);
@@ -65,7 +68,19 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
             if (!result.IsValid)
             {
                 var errors = result.Errors.Select(e => e.ErrorMessage);
-                throw new Exception("Request is not valid");
+                throw new Exception(ResourceMessagesException.INVALID_REQUEST);
+            }
+        } 
+        
+        private static void ValidateUpdate(RequestUpdateBicycleJson request)
+        {
+            var validator = new UpdateBicycleValidator();
+            var result = validator.Validate(request);
+
+            if (!result.IsValid)
+            {
+                var errors = result.Errors.Select(e => e.ErrorMessage);
+                throw new Exception(ResourceMessagesException.INVALID_REQUEST);
             }
         }
     }
