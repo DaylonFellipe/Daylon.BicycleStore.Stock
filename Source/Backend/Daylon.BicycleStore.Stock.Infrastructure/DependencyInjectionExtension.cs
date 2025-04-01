@@ -9,7 +9,7 @@ namespace Daylon.BicycleStore.Stock.Infrastructure
 {
     public static class DependencyInjectionExtension
     {
-        public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        public static void AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
             AddDbContext(services, configuration);
             AddRepositories(services);
@@ -17,13 +17,16 @@ namespace Daylon.BicycleStore.Stock.Infrastructure
 
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
         {
+            var connectionString = configuration.GetConnectionString("SqlServerConnection");
+
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new ArgumentNullException("Database connection string is not configured");
+
             services.AddDbContext<BicycleStoreDbContext>(options =>
-            {
-                options.UseSqlServer(configuration.GetConnectionString("SqlServerConnection"));
-            });
+                options.UseSqlServer(connectionString));
         }
 
-        public static void AddRepositories( IServiceCollection services)
+        private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IBicycleRepository, BicycleRepository>();
         }

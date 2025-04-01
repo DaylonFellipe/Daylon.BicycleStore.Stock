@@ -7,7 +7,7 @@ namespace Daylon.BicycleStore.Stock.Application
 {
     public static class DependencyInjectionExtension
     {
-        public static void AddApplication(this IServiceCollection services)
+        public static void AddApplicationServices(this IServiceCollection services)
         {
             AddServices(services);
         }
