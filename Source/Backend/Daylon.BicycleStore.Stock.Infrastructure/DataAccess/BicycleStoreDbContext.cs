@@ -13,6 +13,13 @@ namespace Daylon.BicycleStore.Stock.Infrastructure.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            ApplyEntityConfigurations(modelBuilder);
+        }
+
+        private void ApplyEntityConfigurations(ModelBuilder modelBuilder)
+        {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(BicycleStoreDbContext).Assembly);
         }
     }

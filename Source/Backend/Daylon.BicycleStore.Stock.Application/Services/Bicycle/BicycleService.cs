@@ -80,7 +80,7 @@ namespace Daylon.BicycleStore.Stock.Application.Services.Bicycle
         {
             var bicycle = await _bicycleRepository.GetBicycleByIdAsync(id);
 
-            await _bicycleRepository.DeleteBicycleAsync(bicycle);
+            await _bicycleRepository.DeleteAsync(bicycle);
         }
     }
 }

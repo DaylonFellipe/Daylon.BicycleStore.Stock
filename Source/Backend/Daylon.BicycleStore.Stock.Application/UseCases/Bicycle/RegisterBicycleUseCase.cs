@@ -54,7 +54,7 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
             if (Enum.IsDefined(typeof(ColorEnum), request.Color)) bicycle.Color = request.Color;
             if (request.Price != null) bicycle.Price = request.Price;
 
-            await _bicycleRepository.UpdateTaskAsync(bicycle);
+            await _bicycleRepository.UpdateAsync(bicycle);
             await _bicycleRepository.SaveChangesAsync();
 
             return bicycle;

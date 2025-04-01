@@ -1,16 +1,14 @@
 ﻿using Daylon.BicycleStore.Stock.Domain.Entity;
+using Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle;
 
 namespace Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle
 {
     public interface IBicycleRepository
     {
         // DB
-
-        public Task SaveChangesAsync();
-
         public Task AddAsync(Entity.Bicycle bicycle);
 
-        public Task UpdateTaskAsync(Entity.Bicycle bicycle);
+        public Task UpdateAsync(Entity.Bicycle bicycle);
 
         // GET
 
@@ -20,6 +18,6 @@ namespace Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle
 
         // DELETE
 
-        public Task DeleteBicycleAsync(Entity.Bicycle bicycle);
+        public Task DeleteAsync(Entity.Bicycle bicycle);
     }
 }

@@ -8,15 +8,20 @@ namespace Daylon.BicycleStore.Stock.Infrastructure.DataAccess.Repositories
     {
         private readonly BicycleStoreDbContext _dbContext;
 
-        public BicycleRepository(BicycleStoreDbContext dbContext) => _dbContext = dbContext;
+        public BicycleRepository(BicycleStoreDbContext dbContext) => _dbContext = dbContext
+            ?? throw new ArgumentNullException(nameof(dbContext));
 
         // DB
 
-        public async Task SaveChangesAsync() => await _dbContext.SaveChangesAsync();
+        private async Task SaveChangesAsync() => await _dbContext.SaveChangesAsync();
 
-        public async Task AddAsync(Bicycle bicycle) => await _dbContext.Bicycles.AddAsync(bicycle);
+        public async Task AddAsync(Bicycle bicycle)
+        {
+            await _dbContext.Bicycles.AddAsync(bicycle);
+            await SaveChangesAsync();
+        }
 
-        public async Task UpdateTaskAsync(Bicycle bicycle)
+        public async Task UpdateAsync(Bicycle bicycle)
         {
             _dbContext.Bicycles.Update(bicycle);
             await SaveChangesAsync();
@@ -28,19 +33,16 @@ namespace Daylon.BicycleStore.Stock.Infrastructure.DataAccess.Repositories
 
         public async Task<Bicycle> GetBicycleByIdAsync(Guid id)
         {
-            var bicycle = await _dbContext.Bicycles.FirstOrDefaultAsync(b => b.Id == id);
-
-            return bicycle ?? throw new Exception($"Bicycle with id {id} not found");
+            return await _dbContext.Bicycles.FindAsync(id)
+                ?? throw new Exception($"Bicycle with id {id} not found");
         }
 
         // DELETE
 
-        public async Task DeleteBicycleAsync(Bicycle bicycle)
+        public async Task DeleteAsync(Bicycle bicycle)
         {
             _dbContext.Bicycles.Remove(bicycle);
-
             await SaveChangesAsync();
         }
     }
 }
- 
