@@ -35,7 +35,6 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
 
             // Save
             await _bicycleRepository.AddAsync(bicycle);
-            await _bicycleRepository.SaveChangesAsync();
 
             return bicycle;
         }
@@ -55,7 +54,6 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
             if (request.Price != null) bicycle.Price = request.Price;
 
             await _bicycleRepository.UpdateAsync(bicycle);
-            await _bicycleRepository.SaveChangesAsync();
 
             return bicycle;
         }
