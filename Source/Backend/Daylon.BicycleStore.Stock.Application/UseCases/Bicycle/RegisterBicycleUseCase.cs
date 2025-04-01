@@ -30,7 +30,7 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
                 Color = request.Color,
                 Price = request.Price,
                 Quantity = request.Quantity,
-                Status = request.Quantity > 0 ? true : false
+                IsAvailable = request.Quantity > 0 ? true : false
             };
 
             // Save
