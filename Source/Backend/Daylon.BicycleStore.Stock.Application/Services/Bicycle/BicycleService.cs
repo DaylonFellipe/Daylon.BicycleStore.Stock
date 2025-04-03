@@ -2,85 +2,69 @@
 using Daylon.BicycleStore.Stock.Application.DTO.BicycleDTO;
 using Daylon.BicycleStore.Stock.Application.Interface;
 using Daylon.BicycleStore.Stock.Application.UseCases.Bicycle;
-using Daylon.BicycleStore.Stock.Domain.Entity.Enum;
 using Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle;
+using Daylon.BicycleStore.Stock.Exceptions;
 
 namespace Daylon.BicycleStore.Stock.Application.Services.Bicycle
 {
     public class BicycleService : IBicycleService
     {
         private readonly IBicycleRepository _bicycleRepository;
-        private readonly IBicycleUseCase _useCase;
+        private readonly IBicycleUseCase _bicycleUseCase;
 
         public BicycleService(
             IBicycleRepository bicycleRepository,
-            IBicycleUseCase UseCase
+            IBicycleUseCase bicycleUseCase
             )
         {
             _bicycleRepository = bicycleRepository;
-            _useCase = UseCase;
+            _bicycleUseCase = bicycleUseCase;
         }
 
         // GET
         public async Task<List<Domain.Entity.Bicycle>> GetBicyclesAsync()
-        {
-            var bicycles = await _bicycleRepository.GetBicyclesAsync();
-
-            return bicycles;
-        }
+            => await _bicycleRepository.GetBicyclesAsync();
 
         public async Task<Domain.Entity.Bicycle> GetBicycleByIdAsync(Guid id)
-        {
-            var bicycle = await _bicycleRepository.GetBicycleByIdAsync(id);
-
-            return bicycle;
-        }
+            => await _bicycleRepository.GetBicycleByIdAsync(id)
+            ?? throw new Exception(ResourceMessagesException.BICYCLE_NOT_FOUND);
 
         // POST
 
         public async Task<BicycleDTO> RegisterBicycleAsync(RequestRegisterBicycleJson request)
         {
-            var bicycle = await _useCase.ExecuteRegisterBicycleAsync(request);
+            var bicycle = await _bicycleUseCase.ExecuteRegisterBicycleAsync(request);
 
-            var result = new BicycleDTO
-            {
-                Name = bicycle.Name,
-                Description = bicycle.Description,
-                Brand = bicycle.Brand,
-                Model = bicycle.Model,
-                Color = bicycle.Color,
-                Price = bicycle.Price
-            };
-
-            return result;
+            return MapToDTO(bicycle);
         }
 
-        //PUT
+        // PUT
 
         public async Task<BicycleDTO> UpdateBicycleAsync(RequestUpdateBicycleJson request)
         {
-           var bicycle = await _useCase.ExecuteUpdateBicycleAsync(request);
+            var bicycle = await _bicycleUseCase.ExecuteUpdateBicycleAsync(request);
 
-            var result = new BicycleDTO
-            {
-                Name = bicycle.Name,
-                Description = bicycle.Description,
-                Brand = bicycle.Brand,
-                Model = bicycle.Model,
-                Color = bicycle.Color,
-                Price = bicycle.Price
-            };
-
-            return result;
+            return MapToDTO(bicycle);
         }
 
         // DELETE
 
         public async Task DeleteBicycleAsync(Guid id)
         {
-            var bicycle = await _bicycleRepository.GetBicycleByIdAsync(id);
+            var bicycle = await _bicycleRepository.GetBicycleByIdAsync(id)
+                ?? throw new Exception(ResourceMessagesException.BICYCLE_NOT_FOUND);
 
             await _bicycleRepository.DeleteAsync(bicycle);
         }
+
+        private static BicycleDTO MapToDTO(Domain.Entity.Bicycle bicycle) => new()
+        {
+            Name = bicycle.Name,
+            Description = bicycle.Description,
+            Brand = bicycle.Brand,
+            Model = bicycle.Model,
+            Color = bicycle.Color,
+            Price = bicycle.Price
+        };
     }
 }

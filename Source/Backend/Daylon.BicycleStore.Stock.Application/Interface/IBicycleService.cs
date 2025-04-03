@@ -7,20 +7,20 @@ namespace Daylon.BicycleStore.Stock.Application.Interface
     {
         // GET
 
-        public Task<List<Domain.Entity.Bicycle>> GetBicyclesAsync();
+        Task<List<Domain.Entity.Bicycle>> GetBicyclesAsync();
 
-        public Task<Domain.Entity.Bicycle> GetBicycleByIdAsync(Guid id);
+        Task<Domain.Entity.Bicycle> GetBicycleByIdAsync(Guid id);
 
         // POST
 
-        public Task<BicycleDTO> RegisterBicycleAsync(RequestRegisterBicycleJson request);
+        Task<BicycleDTO> RegisterBicycleAsync(RequestRegisterBicycleJson request);
 
         // PUT
 
-        public Task<BicycleDTO> UpdateBicycleAsync(RequestUpdateBicycleJson request);
+        Task<BicycleDTO> UpdateBicycleAsync(RequestUpdateBicycleJson request);
 
         // DELETE
 
-        public Task DeleteBicycleAsync(Guid id);
+        Task DeleteBicycleAsync(Guid id);
     }
 }
