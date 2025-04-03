@@ -15,7 +15,7 @@ namespace Daylon.BicycleStore.Stock.Application
         private static void AddServices(IServiceCollection services)
         {
             services.AddScoped<IBicycleService, BicycleService>();
-            services.AddScoped<IRegisterBicycleUseCase, RegisterBicycleUseCase>();
+            services.AddScoped<IBicycleUseCase, BicycleUseCase>();
         }
     }
 }

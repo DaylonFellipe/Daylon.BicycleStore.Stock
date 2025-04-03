@@ -61,6 +61,15 @@ namespace Daylon.BicycleStore.Stock.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bicycle not found..
+        /// </summary>
+        public static string BICYCLE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("BICYCLE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name cannot be empty..
         /// </summary>
         public static string EMPTY_NAME {
@@ -97,7 +106,7 @@ namespace Daylon.BicycleStore.Stock.Exceptions {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Brand is required..
+        ///   Looks up a localized string similar to Valid brand is required..
         /// </summary>
         public static string REQUIRED_BRAND {
             get {
@@ -106,7 +115,7 @@ namespace Daylon.BicycleStore.Stock.Exceptions {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Color is required..
+        ///   Looks up a localized string similar to Valid color is required..
         /// </summary>
         public static string REQUIRED_COLOR {
             get {
@@ -115,7 +124,7 @@ namespace Daylon.BicycleStore.Stock.Exceptions {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Model is required..
+        ///   Looks up a localized string similar to Valid model is required..
         /// </summary>
         public static string REQUIRED_MODEL {
             get {

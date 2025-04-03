@@ -1,5 +1,6 @@
 ﻿using Daylon.BicycleStore.Stock.Domain.Entity;
 using Daylon.BicycleStore.Stock.Domain.Repositories.Bicycle;
+using Daylon.BicycleStore.Stock.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Daylon.BicycleStore.Stock.Infrastructure.DataAccess.Repositories
@@ -22,7 +23,7 @@ namespace Daylon.BicycleStore.Stock.Infrastructure.DataAccess.Repositories
         public async Task<Bicycle?> GetBicycleByIdAsync(Guid id)
         {
             return await _dbContext.Bicycles.FindAsync(id)
-                ?? throw new Exception($"Bicycle with id {id} not found");
+                ?? throw new Exception(ResourceMessagesException.BICYCLE_NOT_FOUND);
         }
 
         // POST

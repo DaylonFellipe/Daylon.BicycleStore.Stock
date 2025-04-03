@@ -10,11 +10,11 @@ namespace Daylon.BicycleStore.Stock.Application.Services.Bicycle
     public class BicycleService : IBicycleService
     {
         private readonly IBicycleRepository _bicycleRepository;
-        private readonly IRegisterBicycleUseCase _useCase;
+        private readonly IBicycleUseCase _useCase;
 
         public BicycleService(
             IBicycleRepository bicycleRepository,
-            IRegisterBicycleUseCase UseCase
+            IBicycleUseCase UseCase
             )
         {
             _bicycleRepository = bicycleRepository;
