@@ -81,6 +81,7 @@ namespace Daylon.BicycleStore.Stock.Api.Controllers
         }
 
         // DELETE
+
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -98,3 +99,4 @@ namespace Daylon.BicycleStore.Stock.Api.Controllers
     }
 }
 
+//   /ᐠ - ˕ -マ D A Y L O N

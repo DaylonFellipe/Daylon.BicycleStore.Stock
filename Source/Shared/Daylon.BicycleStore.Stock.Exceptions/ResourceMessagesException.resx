@@ -129,6 +129,9 @@
   <data name="EMPTY_QUANTITY" xml:space="preserve">
     <value>Quantity is required.</value>
   </data>
+  <data name="INVALID_CONNECTION_STRING" xml:space="preserve">
+    <value>Database connection string is not configured</value>
+  </data>
   <data name="INVALID_REQUEST" xml:space="preserve">
     <value>Request is not valid.</value>
   </data>

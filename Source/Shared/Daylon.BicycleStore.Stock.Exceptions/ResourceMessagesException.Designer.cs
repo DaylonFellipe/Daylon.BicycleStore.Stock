@@ -97,6 +97,15 @@ namespace Daylon.BicycleStore.Stock.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Database connection string is not configured.
+        /// </summary>
+        public static string INVALID_CONNECTION_STRING {
+            get {
+                return ResourceManager.GetString("INVALID_CONNECTION_STRING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Request is not valid..
         /// </summary>
         public static string INVALID_REQUEST {

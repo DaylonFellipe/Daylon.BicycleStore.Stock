@@ -47,7 +47,7 @@ namespace Daylon.BicycleStore.Stock.Application.UseCases.Bicycle
 
             var bicycle = await _bicycleRepository.GetBicycleByIdAsync(request.Id);
 
-            // Map and Update
+            // Update
             if (bicycle != null)
             {
                 if (!string.IsNullOrEmpty(request.Name)) bicycle.Name = request.Name;
