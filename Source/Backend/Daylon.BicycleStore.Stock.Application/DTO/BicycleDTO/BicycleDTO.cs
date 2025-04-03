@@ -5,7 +5,6 @@ namespace Daylon.BicycleStore.Stock.Application.DTO.BicycleDTO
     public class BicycleDTO
     {
         // Basic Properties
-
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; } = string.Empty;
 
