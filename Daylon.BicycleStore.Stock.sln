@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.Infrastructure", "Source\Backend\Daylon.BicycleStore.Stock.Infrastructure\Daylon.BicycleStore.Stock.Infrastructure.csproj", "{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Communication", "Source\Shared\Daylon.BicycleStore.Communication\Daylon.BicycleStore.Communication.csproj", "{ACA11A25-5BDF-4275-92D9-9069C160C206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.Exceptions", "Source\Shared\Daylon.BicycleStore.Stock.Exceptions\Daylon.BicycleStore.Stock.Exceptions.csproj", "{CC25B43E-41C4-48B9-ABB2-E498BDEE8687}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA11A25-5BDF-4275-92D9-9069C160C206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA11A25-5BDF-4275-92D9-9069C160C206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA11A25-5BDF-4275-92D9-9069C160C206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA11A25-5BDF-4275-92D9-9069C160C206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC25B43E-41C4-48B9-ABB2-E498BDEE8687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC25B43E-41C4-48B9-ABB2-E498BDEE8687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC25B43E-41C4-48B9-ABB2-E498BDEE8687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC25B43E-41C4-48B9-ABB2-E498BDEE8687}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +62,7 @@ Global
 		{CF32D4A7-CAF0-401F-9FF1-D031DC22E2AE} = {73382B3C-32AB-46D3-AC1A-A8B1D5E58D06}
 		{06BE526B-5324-480D-8201-5BC72DFCB289} = {73382B3C-32AB-46D3-AC1A-A8B1D5E58D06}
 		{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA} = {73382B3C-32AB-46D3-AC1A-A8B1D5E58D06}
+		{ACA11A25-5BDF-4275-92D9-9069C160C206} = {58C031EF-D178-4FF0-A16B-86CE5F83407F}
+		{CC25B43E-41C4-48B9-ABB2-E498BDEE8687} = {58C031EF-D178-4FF0-A16B-86CE5F83407F}
 	EndGlobalSection
 EndGlobal

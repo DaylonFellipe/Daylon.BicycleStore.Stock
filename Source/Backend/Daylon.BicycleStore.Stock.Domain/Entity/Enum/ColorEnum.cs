@@ -8,12 +8,12 @@ namespace Daylon.BicycleStore.Stock.Domain.Entity.Enum
         Indefinite = 0,
         Black = 1,
         White = 2,
-        Red = 3,
-        Blue = 4,
-        Green = 5,
-        Yellow = 6,
-        Orange = 7,
-        Purple = 8,
-        Gray = 9
+        Gray = 3,
+        Red = 4,
+        Blue = 5,
+        Green = 6,
+        Yellow = 7,
+        Orange = 8,
+        Purple = 9
     }
 }
