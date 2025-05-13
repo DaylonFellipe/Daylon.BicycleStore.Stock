@@ -1,7 +1,9 @@
 ﻿using Daylon.BicycleStore.Communication.Request;
 using Daylon.BicycleStore.Stock.Application.Interface;
 using Daylon.BicycleStore.Stock.Exceptions;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
 
 namespace Daylon.BicycleStore.Stock.Api.Controllers
 {
@@ -10,10 +12,12 @@ namespace Daylon.BicycleStore.Stock.Api.Controllers
     public class BicycleController : ControllerBase
     {
         private readonly IBicycleService _services;
+        private readonly IBus _bus;
 
-        public BicycleController(IBicycleService bicycleRepository)
+        public BicycleController(IBicycleService bicycleRepository, IBus bus)
         {
             _services = bicycleRepository;
+            _bus = bus;
         }
 
         // GET
@@ -40,6 +44,27 @@ namespace Daylon.BicycleStore.Stock.Api.Controllers
 
             if (bicycle == null)
                 return NotFound(ResourceMessagesException.BICYCLE_NOT_FOUND);
+
+            return Ok(bicycle);
+        }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> TESTEEEEEEEEEEEEEEEEEEEEEEEEE(this WebApplication app, Guid id)
+        {
+            var bicycle = await _services.GetBicycleByIdAsync(id);
+
+            if (bicycle == null)
+                return NotFound(ResourceMessagesException.BICYCLE_NOT_FOUND);
+
+            app.MapPost("solicitar-relatorio/{name}", async (string name, IBus bus) =>
+            {
+                //var solicitacao = new SolicitacaoRelatorio()
+                //{
+
+                //}
+            });
 
             return Ok(bicycle);
         }

@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.Infrastructure", "Source\Backend\Daylon.BicycleStore.Stock.Infrastructure\Daylon.BicycleStore.Stock.Infrastructure.csproj", "{5ED0DDE8-133A-4D19-8E9A-DFD58D2A21EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Communication", "Source\Shared\Daylon.BicycleStore.Communication\Daylon.BicycleStore.Communication.csproj", "{ACA11A25-5BDF-4275-92D9-9069C160C206}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.Communication", "Source\Shared\Daylon.BicycleStore.Communication\Daylon.BicycleStore.Stock.Communication.csproj", "{ACA11A25-5BDF-4275-92D9-9069C160C206}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daylon.BicycleStore.Stock.Exceptions", "Source\Shared\Daylon.BicycleStore.Stock.Exceptions\Daylon.BicycleStore.Stock.Exceptions.csproj", "{CC25B43E-41C4-48B9-ABB2-E498BDEE8687}"
 EndProject
